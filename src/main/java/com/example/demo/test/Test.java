@@ -11,8 +11,8 @@ public class Test {
      * @author Qiaozenghan  is
      * @date 2021/12/6 下午10:24
     */
-    public void getTest(){
-        String str = "s";
-        System.out.println(str);
+    public void getTest12(){
+        String str12 = "s";
+        System.out.println(str12);
     }
 }
