@@ -32,7 +32,7 @@ public class TT {
 //        ArrayBlockingQueue
         String path = "/users/qiaozenghan/downloads/01.txt";
         ZipOutputStream zipOutputStream = null;
-        //测试
+        //测试tonghauzhen shijian 
         try{
             zipOutputStream = new ZipOutputStream(new FileOutputStream("/users/qiaozenghan/downloads/02.zip"));
             String line = "aaa";
