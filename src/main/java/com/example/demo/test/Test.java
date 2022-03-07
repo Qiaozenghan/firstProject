@@ -66,7 +66,7 @@ public class Test {
     }
 
     public void m1(){
-        System.out.println("m1");
+        System.out.println("m1111");
     }
     public void m2(){
         System.out.println("m2");
