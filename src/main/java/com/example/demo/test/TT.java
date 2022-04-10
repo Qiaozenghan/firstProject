@@ -1,6 +1,7 @@
 package com.example.demo.test;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
@@ -9,9 +10,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -23,7 +22,7 @@ import java.util.zip.ZipOutputStream;
  * @Version 1.0
  **/
 public class TT {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        ByteBuffer allocate = ByteBuffer.allocate(10);
 //        System.out.println(allocate.position());
 //        allocate.put((byte)1);
@@ -53,20 +52,25 @@ public class TT {
 //                }
 //            }
 //        }
-        //aa1
-        List<Map<String, String>> list = new ArrayList<>();
-        Map<String , String> map = new HashMap<>();
-        map.put("a", "a");
-        map.put("b", "b");
-        list.add(map);
-        Iterator<Map<String, String>> iterator = list.iterator();
-        while(iterator.hasNext()){
-            Map<String, String> next = iterator.next();
-            next.put("a", "aaa");
-        }
-        System.out.println(JSON.toJSONString(list));
 
-        //aa bb cc dd ee ff
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (; ; ) {
+                    if (Thread.currentThread().interrupted()) {
+                        System.out.println("===>" + true);
+                        System.out.println(Thread.currentThread().isInterrupted());
+                        break;
+                    } else {
+                        System.out.println("===>" + false);
+                    }
+                }
+            }
+        });
+        thread.start();
+        Thread.currentThread().sleep(10);
+        thread.interrupt();
 
     }
 }
