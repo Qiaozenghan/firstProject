@@ -1,11 +1,14 @@
 package com.example.demo.test;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import redis.clients.jedis.Jedis;
+import redis.clients.jedis.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -17,7 +20,7 @@ import java.util.Map;
  **/
 @SpringBootTest
 public class TestTest {
-    private static Jedis jedis = new Jedis("192.168.0.105", 6379);
+    private static Jedis jedis = new Jedis("192.168.0.111", 6379);
 
     @Test
     public void redisString() {
@@ -50,15 +53,21 @@ public class TestTest {
     @Test
     public void redisHash(){
         //hset 和hmset作用以一样，但是redis4.0.0 放弃了hmset 使用hset
-        Map<String, String> map = new HashMap<>();
-        map.put("name", "zhangsan");
-        map.put("sex", "man");
-        map.put("age", "12");
-        System.out.println(jedis.hset("张三", map));
-        System.out.println(jedis.hget("张三", "sex"));
-        System.out.println(jedis.hgetAll("张三"));
-        System.out.println(jedis.hdel("张三", "sex"));
-        System.out.println(jedis.hgetAll("张三"));
+        System.out.println(jedis.set("a", "aa"));
+        long begin = System.currentTimeMillis();
+        for(int i = 0; i < 500; i++){
+            Map<String, String> map = new HashMap<>();
+            map.put("name", i+"");
+            map.put("sex", i+"");
+            jedis.hset(i+"", map);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(end-begin+"===");
+
+    }
+
+    @Test
+    public void test1(){
 
     }
 }
