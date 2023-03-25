@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.jayway.jsonpath.internal.filter.ValueNodes;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -98,10 +99,11 @@ class DemoApplicationTests {
 
     }
 
+    //链表倒叙求和
     @Test
     void test1() throws IOException {
-
-
+        com.example.demo.test.Test test = new com.example.demo.test.Test();
+        test.m2();
     }
 
 }

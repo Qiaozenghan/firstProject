@@ -11,6 +11,11 @@ import java.util.concurrent.*;
 
 public class Test {
     public static void main(String[] args) throws IOException {
+        
+
+    }
+
+    public void test01(){
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 10,
                 TimeUnit.HOURS, new LinkedBlockingQueue<>(1),
                 Executors.defaultThreadFactory(),
@@ -62,7 +67,6 @@ public class Test {
 
 
 //        Proxy.newProxyInstance();
-
     }
 
     public void m1(){

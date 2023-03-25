@@ -54,23 +54,25 @@ public class TT {
 //        }
 
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (; ; ) {
-                    if (Thread.currentThread().interrupted()) {
-                        System.out.println("===>" + true);
-                        System.out.println(Thread.currentThread().isInterrupted());
-                        break;
-                    } else {
-                        System.out.println("===>" + false);
-                    }
-                }
-            }
-        });
-        thread.start();
-        Thread.currentThread().sleep(10);
-        thread.interrupt();
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (; ; ) {
+//                    if (Thread.currentThread().interrupted()) {
+//                        System.out.println("===>" + true);
+//                        System.out.println(Thread.currentThread().isInterrupted());
+//                        break;
+//                    } else {
+//                        System.out.println("===>" + false);
+//                    }
+//                }
+//            }
+//        });
+//        thread.start();
+//        Thread.currentThread().sleep(10);
+//        thread.interrupt();
 
+
+        System.out.println(String.class.getName());
     }
 }
